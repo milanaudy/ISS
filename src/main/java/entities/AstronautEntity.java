@@ -28,7 +28,7 @@ import javax.persistence.*;
 //@Column(name="craft_id")
  //private String craftID;
 
-@OneToOne
+@ManyToOne
  @JoinColumn(name = "craft_id")
 private CraftsEntity craft;
 

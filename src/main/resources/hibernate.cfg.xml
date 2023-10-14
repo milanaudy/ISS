@@ -5,6 +5,6 @@
         <property name = "hibernate.connection.username">${DB_USERNAME_ENV_VARIABLE}</property>
         <property name = "hibernate.connection.password">${DB_PASSWORD_ENV_VARIABLE}</property>
         <property name = "hibernate.show_sql">false</property>
-        <property name = "hibernate.hbm2ddl.auto">update</property>
+        <property name = "hibernate.hbm2ddl.auto">create-drop</property>
     </session-factory>
 </hibernate-configuration>
