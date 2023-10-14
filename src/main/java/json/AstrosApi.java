@@ -50,6 +50,9 @@ public class AstrosApi {
 
                     Adder.addCraft(session, craft);
                     Adder.addAstronaut(session, name, craft);
+                    // DeleteFromDb.deleteAll(session); //mazanie celej tabulky
+                    //DeleteFromDb.deleteAstronaut(session,"Gui Haichow"); //mazanie podla mena astronauta
+                    //DeleteFromDb.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
 
 
                 }
