@@ -1,6 +1,8 @@
 package json;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import entities.CraftsEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import parser.DbConnect;
@@ -47,7 +49,7 @@ public class AstrosApi {
 
 
                     Adder.addCraft(session, craft);
-                    Adder.addAstronaut(session,name,1);
+                    Adder.addAstronaut(session, name, craft);
 
 
                 }
