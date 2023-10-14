@@ -2,7 +2,6 @@ package json;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entities.CraftsEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import parser.DbConnect;
@@ -50,12 +49,16 @@ public class AstrosApi {
 
                     Adder.addCraft(session, craft);
                     Adder.addAstronaut(session, name, craft);
-                    // DeleteFromDb.deleteAll(session); //mazanie celej tabulky
-                    //DeleteFromDb.deleteAstronaut(session,"Gui Haichow"); //mazanie podla mena astronauta
-                    //DeleteFromDb.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
-
-
                 }
+
+                // DeleteFromDb.deleteAll(session); //mazanie celej tabulky
+                //DeleteFromDb.deleteAstronaut(session,"Gui Haichow"); //mazanie podla mena astronauta
+                //DeleteFromDb.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
+
+                //Updater.updateAstronautName(session, "Gui Haichow","Howard J. Wolowitz"); // update mena astronauta
+                //Updater.updateCraftName(session,"ISS","Medzinarodna vesmirna stanica"); //update mena lode
+                //Updater.updateCraftofAstronaut(session,"Gui Haichow","SpaceX"); //zmení loď astronautovi,ak nova lod este neexistuje prida novu
+
                 transaction.commit();
                 session.close();
             } else {
