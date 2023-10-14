@@ -10,12 +10,11 @@ public class Adder {
         crafts.setName(craftName);
         session.persist(crafts);
     }
-    public static AstronautEntity addAstronaut(Session session, String astronauName, Integer craftID){
+    public static void addAstronaut(Session session, String astronauName, Integer craftID){
         CraftsEntity craftsEntity = session.find(CraftsEntity.class,craftID);
         AstronautEntity astronautEntity = new AstronautEntity();
         astronautEntity.setName(astronauName);
         astronautEntity.setCraft(craftsEntity);
-        AstronautEntity saveAstronaut = (AstronautEntity) session.merge(astronautEntity);
-        return saveAstronaut;
+        session.persist(astronautEntity);
     }
 }

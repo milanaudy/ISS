@@ -25,9 +25,8 @@ public class CraftsEntity {
     @Column(name="craft_name")
     private String name;
 
-  @OneToMany
-    @JoinColumn(name="craft_id")
-    List<AstronautEntity> astronauts;
+  @OneToMany (mappedBy = "craft", cascade = CascadeType.ALL)
+    private List<AstronautEntity> astronauts;
 
 
 
