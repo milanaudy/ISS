@@ -2,7 +2,6 @@ package json;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entities.CraftsEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import parser.DbConnect;
@@ -36,7 +35,7 @@ public class AstrosApi {
                 JsonNode rootNode = objectMapper.readTree(response.toString());
 
                 int number = rootNode.get("number").asInt();
-                System.out.println("Počet ľudí v medzinárodnej vesmírnej stanici: " + number);
+                //System.out.println("Počet ľudí v medzinárodnej vesmírnej stanici: " + number);
                 JsonNode people = rootNode.get("people");
 
                 Session session = DbConnect.getSession();
@@ -45,7 +44,7 @@ public class AstrosApi {
                 for (JsonNode person : people) {
                     String name = person.get("name").asText();
                     String craft = person.get("craft").asText();
-                    System.out.println(name + " na palube " + craft);
+                    //System.out.println(name + " na palube " + craft);
 
 
                     Adder.addCraft(session, craft);
@@ -55,8 +54,13 @@ public class AstrosApi {
                     //DeleteFromDb.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
 
 
+
                 }
                 transaction.commit();
+                //ReadFromDB.printAllAstrosWithCraft(session);
+                //ReadFromDB.printAstroById(session, 1);
+                //ReadFromDB.printAstroByCraft(session);
+                ReadFromDB.printAstroByName(session);
                 session.close();
             } else {
                 System.out.println("Chyba pri získavaní dát. Kód odpovede: " + responseCode);
