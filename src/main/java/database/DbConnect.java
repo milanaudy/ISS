@@ -1,4 +1,4 @@
-package parser;
+package database;
 
 import entities.AstronautEntity;
 import entities.CraftsEntity;

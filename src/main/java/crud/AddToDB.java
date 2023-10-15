@@ -1,4 +1,4 @@
-package json;
+package crud;
 
 import entities.AstronautEntity;
 import entities.CraftsEntity;
@@ -9,7 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-public class Adder {
+public class AddToDB {
        public static void addCraft(Session session, String craftName) {
         // Skontrolujte, či loď s daným menom už existuje v databáze
         Query query = session.createQuery("SELECT c FROM CraftsEntity c WHERE c.name = :craftName");

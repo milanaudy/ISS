@@ -1,11 +1,14 @@
-package json;
+package api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entities.CraftsEntity;
+import crud.AddToDB;
+import crud.DeleteFromDB;
+import crud.ReadFromDB;
+import crud.UpdateDB;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import parser.DbConnect;
+import database.DbConnect;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -48,24 +51,24 @@ public class AstrosApi {
                     //System.out.println(name + " na palube " + craft);
 
 
-                    Adder.addCraft(session, craft);
-                    Adder.addAstronaut(session, name, craft);
+                    AddToDB.addCraft(session, craft);
+                    AddToDB.addAstronaut(session, name, craft);
                 }
 
-                // DeleteFromDb.deleteAll(session); //mazanie celej tabulky
-                //DeleteFromDb.deleteAstronaut(session,"Gui Haichow"); //mazanie podla mena astronauta
-                //DeleteFromDb.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
+                //DeleteFromDB.deleteAll(session); //mazanie celej tabulky
+                //DeleteFromDB.deleteAstronaut(session,"Gui Haichow"); //mazanie podla mena astronauta
+                //DeleteFromDB.deleteCraftwithAstronauts(session,"ISS"); //odstranuje lod aj s astronautami ktore su na nej
 
-                //Updater.updateAstronautName(session, "Gui Haichow","Howard J. Wolowitz"); // update mena astronauta
-                //Updater.updateCraftName(session,"ISS","Medzinarodna vesmirna stanica"); //update mena lode
-                //Updater.updateCraftofAstronaut(session,"Gui Haichow","SpaceX"); //zmení loď astronautovi,ak nova lod este neexistuje prida novu
+                //UpdateDB.updateAstronautName(session, "Gui Haichow","Howard J. Wolowitz"); // update mena astronauta
+                //UpdateDB.updateCraftName(session,"ISS","Medzinarodna vesmirna stanica"); //update mena lode
+                //UpdateDB.updateCraftofAstronaut(session,"Gui Haichow","SpaceX"); //zmení loď astronautovi,ak nova lod este neexistuje prida novu
 
 
                 transaction.commit();
                 //ReadFromDB.printAllAstrosWithCraft(session);
                 //ReadFromDB.printAstroById(session, 1);
                 //ReadFromDB.printAstroByCraft(session);
-                ReadFromDB.printAstroByName(session);
+                //ReadFromDB.printAstroByName(session);
                 session.close();
             } else {
                 System.out.println("Chyba pri získavaní dát. Kód odpovede: " + responseCode);
