@@ -1,4 +1,4 @@
-package json;
+package crud;
 
 import entities.AstronautEntity;
 import entities.CraftsEntity;
@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class DeleteFromDb {
+public class DeleteFromDB {
     public static void deleteAll(Session session) {
         session.createQuery("DELETE FROM AstronautEntity").executeUpdate();
         session.createQuery("DELETE FROM CraftsEntity").executeUpdate();

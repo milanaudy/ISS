@@ -1,4 +1,4 @@
-package json;
+package crud;
 
 import entities.AstronautEntity;
 import org.hibernate.Session;

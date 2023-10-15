@@ -1,11 +1,11 @@
-package json;
+package crud;
 
 import entities.AstronautEntity;
 import entities.CraftsEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-public class Updater {
+public class UpdateDB {
 
     public static void updateAstronautName(Session session, String oldName, String newName) {
         Query query = session.createQuery("FROM AstronautEntity WHERE name = :astronautName");
